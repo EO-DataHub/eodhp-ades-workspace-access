@@ -20,7 +20,7 @@ $graph:
         doc: file to download
         type: string
     outputs:
-      - id: downloaded-data
+      - id: results
         type: Directory
         outputSource:
           - download-file/results
