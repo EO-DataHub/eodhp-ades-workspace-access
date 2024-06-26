@@ -38,7 +38,7 @@ $graph:
     hints:
       DockerRequirement:
         dockerPull: public.ecr.aws/n1b3o1k2/eodhp-test-workflow-access:0.0.2
-    baseCommand: ["python", "-m", "convert_image"]
+    baseCommand: ["python", "-m", "download-file"]
     inputs:
       access_point:
         type: string

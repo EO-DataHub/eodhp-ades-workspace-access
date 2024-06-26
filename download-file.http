@@ -5,7 +5,8 @@
 @ades = dev.eodatahub.org.uk/ades
 @username= eric
 @workspace = test-workspace
-
+@accessPoint = arn:aws:s3:eu-west-2:312280911266:accesspoint/test-access-point
+@fileName = s3/file/key
 @logindetails = username:password
 
 @deployStatus = {{deployProcessJson.response.headers.Location}}
@@ -34,7 +35,7 @@ Authorization: Basic {{logindetails}}
 Accept: application/json
 Content-Type: application/cwl+yaml
 
-< convert-url-app.cwl
+< download-file.cwl
 
 ###
 
@@ -62,8 +63,8 @@ Prefer: respond-async
 {
   "inputs": {
     "workspace": "{{workspace}}",
-      "access_point": "<access_point>",
-      "file_name":  "<key/to/file>"
+      "access_point": "{{accessPoint}}",
+      "file_name":  "{{fileName}}",
   }
 }
 
