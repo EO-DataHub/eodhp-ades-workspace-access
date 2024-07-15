@@ -5,7 +5,7 @@
 @ades = dev.eodatahub.org.uk/ades
 @username= eric
 @workspace = <WORKSPACE NAME>
-@accessPoint = arn:aws:s3:eu-west-2:<AWS ACCOUNT ID>:accesspoint/<ACCESS POINT NAME>
+@s3Endpoint = AccessPointName-AccountId.s3-accesspoint.region.amazonaws.com
 @fileName = <WORKSPACE NAME>/<FILENAME>.tif
 @logindetails=<USERNAME>:<PASSWORD>
 
@@ -63,7 +63,7 @@ Prefer: respond-async
 {
   "inputs": {
     "workspace": "{{workspace}}",
-    "access_point": "{{accessPoint}}",
+    "s3_endpoint": "{{s3Endpoint}}",
     "file_name":  "{{fileName}}",
   }
 }

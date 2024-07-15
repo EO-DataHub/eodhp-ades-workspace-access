@@ -11,9 +11,9 @@ $graph:
     label: Download File App
     doc: Test GDAL Compatibility
     inputs:
-      access_point:
-        label: access point in S3
-        doc: access point in S3
+      s3_endpoint:
+        label: https s3 endpoint
+        doc: https s3 endpoint
         type: string
       file_name:
         label: file to download
@@ -28,7 +28,7 @@ $graph:
       gdal-workflow-test:
         run: "#gdal-workflow-test"
         in:
-          access_point: access_point
+          s3_endpoint: s3_endpoint
           file_name: file_name
         out:
           - results
@@ -41,7 +41,7 @@ $graph:
         dockerPull: public.ecr.aws/n1b3o1k2/eodhp-gdal-workflow-test:latest
     baseCommand: ["/venv/bin/python", "-m", "gdal-workflow-test"]
     inputs:
-      access_point:
+      s3_endpoint:
         type: string
         inputBinding:
           position: 1

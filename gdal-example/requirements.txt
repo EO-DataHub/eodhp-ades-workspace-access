@@ -3,3 +3,4 @@ rasterio
 gdal
 xarray
 rioxarray
+rasterio[s3]
