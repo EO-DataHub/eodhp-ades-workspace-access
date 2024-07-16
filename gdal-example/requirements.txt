@@ -1,0 +1,6 @@
+boto3
+rasterio
+gdal
+xarray
+rioxarray
+rasterio[s3]

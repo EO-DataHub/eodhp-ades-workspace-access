@@ -10,5 +10,5 @@ WORKDIR /app
 COPY requirements.txt /app
 RUN python -m pip install -r requirements.txt 
 
-COPY download-file/ download-file/
+COPY . .
 ENTRYPOINT ["python", "-m", "download-file"]

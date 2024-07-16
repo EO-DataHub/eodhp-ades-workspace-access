@@ -2,12 +2,12 @@
 # logindetails=user:password 
 
 @scheme = https
-@ades = dev.eodatahub.org.uk/ades
+@ades = test.eodatahub.org.uk/ades
 @username= eric
-@workspace = test-workspace
-@accessPoint = arn:aws:s3:eu-west-2:312280911266:accesspoint/test-access-point
-@fileName = s3/file/key
-@logindetails = username:password
+@workspace = <WORKSPACE NAME>
+@s3Endpoint = AccessPointName-AccountId.s3-accesspoint.region.amazonaws.com
+@fileName = <WORKSPACE NAME>/<FILENAME>.tif
+@logindetails=<USERNAME>:<PASSWORD>
 
 @deployStatus = {{deployProcessJson.response.headers.Location}}
 @executeStatus = {{executeProcess.response.headers.Location}}
@@ -15,7 +15,7 @@
 ###
 
 # @name deleteProcess
-DELETE {{scheme}}://{{ades}}/{{username}}/ogc-api/processes/download-file HTTP/1.1
+DELETE {{scheme}}://{{ades}}/{{username}}/ogc-api/processes/gdal-workflow-test HTTP/1.1
 Authorization: Basic {{logindetails}}
 Accept: application/json
 
@@ -35,7 +35,7 @@ Authorization: Basic {{logindetails}}
 Accept: application/json
 Content-Type: application/cwl+yaml
 
-< download-file.cwl
+< gdal-workflow-test.cwl
 
 ###
 
@@ -47,14 +47,14 @@ Accept: application/json
 ###
 
 # @name getProcessDetails
-GET {{scheme}}://{{ades}}/{{username}}/ogc-api/processes/download-file HTTP/1.1
+GET {{scheme}}://{{ades}}/{{username}}/ogc-api/processes/gdal-workflow-test HTTP/1.1
 Authorization: Basic {{logindetails}}
 Accept: application/json
 
 ###
 
 # @name executeProcess
-POST {{scheme}}://{{ades}}/{{username}}/ogc-api/processes/download-file/execution HTTP/1.1
+POST {{scheme}}://{{ades}}/{{username}}/ogc-api/processes/gdal-workflow-test/execution HTTP/1.1
 Authorization: Basic {{logindetails}}
 Accept: application/json
 Content-Type: application/json
@@ -63,8 +63,8 @@ Prefer: respond-async
 {
   "inputs": {
     "workspace": "{{workspace}}",
-      "access_point": "{{accessPoint}}",
-      "file_name":  "{{fileName}}",
+    "s3_endpoint": "{{s3Endpoint}}",
+    "file_name":  "{{fileName}}",
   }
 }
 
@@ -85,7 +85,7 @@ Accept: application/json
 ###
 
 # @name undeployProcess
-DELETE {{scheme}}://{{ades}}/{{username}}/ogc-api/processes/download-file HTTP/1.1
+DELETE {{scheme}}://{{ades}}/{{username}}/ogc-api/processes/gdal-workflow-test HTTP/1.1
 Authorization: Basic {{logindetails}}
 Accept: application/json
 
