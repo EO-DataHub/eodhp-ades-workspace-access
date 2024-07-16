@@ -2,7 +2,7 @@
 # logindetails=user:password 
 
 @scheme = https
-@ades = dev.eodatahub.org.uk/ades
+@ades = test.eodatahub.org.uk/ades
 @username= eric
 @workspace = <WORKSPACE NAME>
 @s3Endpoint = AccessPointName-AccountId.s3-accesspoint.region.amazonaws.com

@@ -2,7 +2,7 @@
 # logindetails=user:password 
 
 @scheme = https
-@ades = dev.eodatahub.org.uk/ades
+@ades = test.eodatahub.org.uk/ades
 @username= eric
 @workspace = test-workspace
 @accessPoint = arn:aws:s3:eu-west-2:312280911266:accesspoint/test-access-point
